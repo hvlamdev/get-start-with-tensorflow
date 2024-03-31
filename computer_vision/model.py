@@ -101,3 +101,15 @@ new_model_h5 = tf.keras.models.load_model('my_model.h5')
 
 # Summary of loaded h5 model
 new_model_h5.summary()
+
+# ---------------------------------------------------
+# Callbacks
+# A callback is a powerful tool to customize the behavior of a Keras model during training, evaluation, or inference.
+# You can define a callback to stop training as soon as your model reaches a desired accuracy on the training set.
+
+
+# Print out max value to see the changes
+image_batch, labels_batch = next(iter(ds_train))
+t_image_batch, t_labels_batch = next(iter(ds_test))
+up_logger.info("training images max " + str(np.max(image_batch[0])))
+up_logger.info("test images max " + str(np.max(t_image_batch[0])))
